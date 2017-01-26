@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void allocate_memory(double *buf,long N)
+double *allocate_memory(long N)
 {
+   double *buf;
    if (N>1000000)
      {
         printf("Tried to hog up too much memory!\n");
@@ -14,7 +15,7 @@ void allocate_memory(double *buf,long N)
         printf("Allocation failed\n");
         exit(0);
      }
-     
+   return(buf);
 }
 void gen_random_numbers(double *buf,long N)
 {
@@ -42,7 +43,7 @@ int main(int argc, char *argv[])
         exit(0);
      }
    N=atoi(argv[1]);
-   allocate_memory(buffer,N);
+   buffer=allocate_memory(N);
    gen_random_numbers(buffer,N);
    average=compute_average(buffer,N);
    printf("The average we have been waiting on is %f\n",average);
