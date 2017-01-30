@@ -5,9 +5,9 @@ const double PI = 3.14159;
 double my_function(char *filename)
 {
    FILE *fp;
-   int index;
+   int FunctionLoopCounter, index;
    double s,c;
-   double FunctionLoopCounter, sum=0; /* change name of previously unused (deprecated?) x variable to FunctionLoopCounter  */
+   double sum=0; /* change name of previously unused (deprecated?) x variable to FunctionLoopCounter  */
    fp=fopen(filename,"r");
    printf("The file that I am reading from is %s\n",filename);
    for (FunctionLoopCounter=0; fscanf(fp, "%d %lf %lf", &index, &s, &c) != EOF; FunctionLoopCounter++) /* Test for EOF before manipulating or storing values */ 
