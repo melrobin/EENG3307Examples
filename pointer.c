@@ -7,18 +7,16 @@ double my_function(char *filename)
    FILE *fp;
    int index;
    double s,c;
-   double x,sum=0;
+   double FunctionLoopCounter, sum=0; /* change name of previously unused (deprecated?) x variable to FunctionLoopCounter  */
    fp=fopen(filename,"r");
    printf("The file that I am reading from is %s\n",filename);
-   while (!feof(fp))
+   for (FunctionLoopCounter=0; fscanf(fp, "%d %lf %lf", &index, &s, &c) != EOF; FunctionLoopCounter++) /* Test for EOF before manipulating or storing values */ 
    {
-       fscanf(fp,"%d",&index);
-       fscanf(fp,"%lf",&s);
-       fscanf(fp,"%lf",&c);
        sum +=c;
        printf("Current value of cosine is %f, but the current value of the sum is %f\n",c,sum);
    }
    fclose(fp);
+   return (sum / (FunctionLoopCounter + 1)); /* Function returns the average value */
 }
 int main()
 {
