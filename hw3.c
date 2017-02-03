@@ -3,7 +3,6 @@
 
 void allocate_memory(double ** buf, long N)
 {
-   //double *buf;
    if (N>1000000)
      {
         printf("Tried to hog up too much memory!\n");
@@ -15,7 +14,6 @@ void allocate_memory(double ** buf, long N)
         printf("Allocation failed\n");
         exit(0);
      }
-   //return(buf);
 }
 void gen_random_numbers(double *buf,long N)
 {
